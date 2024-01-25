@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import cuisine from '../views/cuisines.vue'
+import cuisine from '../views/cuisine.vue'
 import events from '../views/events.vue'
 import menu from '../views/menu.vue'
 import orderconfirm from '../views/orderconfirm.vue'

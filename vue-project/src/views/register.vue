@@ -7,48 +7,55 @@ const username = ref ('')
 const password = ref ('') 
 
 function validateEmail(email) {
-    var re = /\S+@\S+
+    var re = /\S+@\S+\.\S+/
+     return re.test(email)
 }
 
 function register() {
-    const reqBody = {
-        "email": email.value,
-        "username": username.value,
-        "password": password.value
+    router.push("/")
+
+    // if(!validateEmail(email.value)) {
+    //     alert ("please enter a valid email")
+    // } else {
+    //     const reqBody = {
+    //         "email": email.value,
+    //         "username": username.value,
+    //         "password": password.value
+    //     }
+
+    //     fetch("http://localhost:3000/users",
+    //     {
+    //         headers: {"Content-Type": "application/json"},
+    //         body: JSON.stringify(reqBody),
+    //         method: "POST"
+    //     })
+    //     .then (response => {
+    //         if(response.status === 201) {
+    //             alert("Account Created! Please Login to continue.")
+    //         } else {
+    //             alert ("Something went wrong! Please try again.")
+    //         }
+    //     })
+    //     .catch (error => {
+    //     console.log(error)
+    //     })
     }
 
-    fetch("http://localhost:3000/users",
-    {
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(reqBody),
-        method: "POST"
-    })
-    .then (response => {
-        if(response.status === 201) {
-            alert("Account Created! Please Login to continue.")
-            router.push("/")
-        } else {
-            alert ("Something went wrong! Please try again.")
-        }
-    })
-    .catch (error => {
-    console.log(error)
-    })
-    }
 
 
 </script>
 
 <template>
-<div class="container"></div>
-  <img id="logo" 
-       src="/Users/bbarnett12/Library/CloudStorage/OneDrive-Humana/Desktop/Petcha Kutcha photos/Unknown-6.jpeg">
-  <h1>Register</h1>
-  <input v-model="email" type="text" placeholder="email" />
-  <input v-model="username" type="text" placeholder="username" />
-  <input v-model="password" type="text" placeholder="password">
-  <button @click="register">Register</button>
-  <RouterLink to="/">Cancel</RouterLink>
+    <div class="container">
+        <img id="logo" 
+            src="/Users/bbarnett12/Library/CloudStorage/OneDrive-Humana/Desktop/Petcha Kutcha photos/Unknown-6.jpeg">
+        <h1>Register</h1>
+        <input v-model="email" type="text" placeholder="email" />
+        <input v-model="username" type="text" placeholder="username" />
+        <input v-model="password" type="text" placeholder="password">
+        <button @click="register">Register</button>
+        <RouterLink to="/">Cancel</RouterLink>
+    </div>
 </template>
 
 <style scoped>
